@@ -5,6 +5,7 @@ import { ICard } from './card.interface';
 
 // styles
 import { Container, ContainerData, ContainerLike } from './card.styled';
+import { GrLike } from 'react-icons/gr';
 
 export default function CardRepository(props: ICard) {
   return (
@@ -16,6 +17,7 @@ export default function CardRepository(props: ICard) {
         <label>Techs:{props.techs}</label>
       </ContainerData>
       <ContainerLike>
+        <GrLike />
         <label>{props.likes}</label>
       </ContainerLike>
     </Container>

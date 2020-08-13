@@ -1,8 +1,5 @@
 import React from 'react';
 
-// interface
-import { IMenu } from './menu.interface';
-
 // styled
 import { Container } from './menu.styled';
 

@@ -20,8 +20,11 @@ export const ContainerData = styled.div`
 `;
 
 export const ContainerLike = styled.div`
-  width: 20px;
+  width: 40px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-end;
+
+  label {
+  }
 `;
