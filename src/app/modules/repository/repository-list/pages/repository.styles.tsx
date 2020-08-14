@@ -8,7 +8,15 @@ export const MenuContainer = styled.div`
 `;
 
 export const ListContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    padding: 24px;
+    color: #fff;
+    li {
+      list-style: none;
+    }
+  }
 `;

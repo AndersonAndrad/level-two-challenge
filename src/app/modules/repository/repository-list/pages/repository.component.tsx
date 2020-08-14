@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
+// api
+import api from '../../../../../service/api/level-one-api';
 
 // component
 import Card from '../components/card-repository/card.component';
@@ -10,22 +13,33 @@ import Menu from '../../../../../shared/menu/menu.component';
 import { Container, MenuContainer, ListContainer } from './repository.styles';
 
 export default function RepositoryList() {
+  const [repository, setRepository] = useState([]);
+
+  useEffect(() => {
+    api.get('/repositories').then((response: any) => {
+      setRepository(response.data);
+    });
+  }, [repository]);
+
   return (
     <Container>
       <MenuContainer>
         <Menu />
       </MenuContainer>
       <ListContainer>
-        <Card id={1} likes={2} techs={['asdf']} title="ok" url="asdf" />
-        <Card id={1} likes={2} techs={['asdf']} title="ok" url="asdf" />
-        <Card id={1} likes={2} techs={['asdf']} title="ok" url="asdf" />
-        <Card id={1} likes={2} techs={['asdf']} title="ok" url="asdf" />
-        <Card id={1} likes={2} techs={['asdf']} title="ok" url="asdf" />
-        <Card id={1} likes={2} techs={['asdf']} title="ok" url="asdf" />
-        <Card id={1} likes={2} techs={['asdf']} title="ok" url="asdf" />
-        <Card id={1} likes={2} techs={['asdf']} title="ok" url="asdf" />
-        <Card id={1} likes={2} techs={['asdf']} title="ok" url="asdf" />
-        <Card id={1} likes={2} techs={['asdf']} title="ok" url="asdf" />
+        <ul>
+          {repository.map((repo: any) => (
+            <li key={repo.id}>
+              <Card
+                id={repo.id}
+                likes={repo.likes}
+                techs={['asdf']}
+                title={repo.title}
+                url={repo.url}
+              />
+            </li>
+          ))}
+        </ul>
       </ListContainer>
     </Container>
   );
