@@ -11,4 +11,24 @@ export const Container = styled.div`
   align-items: center;
   border-radius: 7px;
   margin-top: 50px;
+
+  a:link {
+    text-decoration: none;
+    color: #000;
+  }
+
+  a:visited {
+    text-decoration: none;
+    color: #000;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: #000;
+  }
+
+  a:active {
+    text-decoration: none;
+    color: #000;
+  }
 `;
