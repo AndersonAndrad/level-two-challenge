@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 // api
 import api from '../../../../../service/api/level-one-api';
@@ -16,11 +16,13 @@ import {
 
 export default function RepositoryDelete() {
   const [repositoryID, setRepositoryID] = useState('');
+  const history = useHistory();
 
   function handleEvent() {
     repositoryID
       ? api.delete(`/repositories/${repositoryID}`)
       : console.log(`don't have ${repositoryID}`);
+    history.push('');
   }
 
   return (
@@ -38,9 +40,7 @@ export default function RepositoryDelete() {
             onChange={(event) => setRepositoryID(event.target.value)}
           />
         </ContainerText>
-        <Link to="">
-          <button onClick={handleEvent}>Delete</button>
-        </Link>
+        <button onClick={handleEvent}>Delete</button>
       </ContainerInput>
     </Container>
   );
